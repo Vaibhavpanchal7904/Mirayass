@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home Salon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #333;
+      padding-bottom: 15px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+     
+    }
+    .logo {
+  width: 50px;
+  height: auto;
+  object-fit: contain;
+   color: #e91e63; /* pink */
+}
+     .brand-title {
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    .brand-title .part1 {
+      color: #F28B8B; /* Soft pink */
+    }
+
+    .brand-title .part2 {
+      color: #3BB9B0; /* Teal green */
+    }
+    header img {
+      height: 25px;
+    }
+
+    .header-icons i {
+      margin-left: 15px;
+      color: #555;
+      font-size: 18px;
+    }
+
+ .main-slider-section {
+  padding: 40px 0;
+  background: #fff;
+   background: #fae7e7;
+  padding: 20px 0;
+}
+
+.main-slider-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.main-slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.slide img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+button.main-prev,
+button.main-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: 28px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+button.main-prev {
+  left: 10px;
+}
+
+button.main-next {
+  right: 10px;
+}
+
+@media (max-width: 480px) {
+  .main-slider-section {
+    padding: 30px 20px;
+  }
+  .slide img {
+    height: 200px; /* reduce height for small screens */
+  }
+}
+
+    .location-search {
+      padding: 15px;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .location-box {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .location-box i {
+      margin-right: 10px;
+      color: #ff5c8d;
+    }
+
+    .search-bar {
+      width: 100%;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .promo {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .promo h2 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .promo p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #fda7b0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+      z-index: 999;
+    }
+
+    .nav-item {
+      text-align: center;
+      font-size: 12px;
+      color: #fff;
+    }
+
+    .nav-item i {
+      font-size: 18px;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .center-btn {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #26bba0;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .center-btn i {
+      font-size: 24px;
+      color: #fff;
+    }
+
+    @media (min-width: 600px) {
+      .promo h2 { font-size: 24px; }
+      .promo p { font-size: 16px; }
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 25px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .category {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .category img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+       object-fit: cover;
+  background-color: #fff; /* Optional to avoid transparency gaps */
+      margin-bottom: 8px;
+    }
+
+    .category-title {
+      font-weight: 500;
+      color: #333;
+    }
+
+  .dropdown {
+  display: none;
+  position: absolute;
+  top: auto;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: max-content;
+  max-width: 90vw;
+  z-index: 999;
+width: fit-content;
+  animation: dropdownSlide 0.3s ease-in-out;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.dropdown.active {
+  display: block;
+}
+
+.dropdown strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown li {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s;
+  font-size: 15px;
+}
+.dropdown ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  padding: 8px 12px;
+  white-space: nowrap; /* ✅ Prevents text from breaking in weird ways */
+  border-bottom: 1px solid #d85757;
+  font-size: 14px;
+  color: #ff5c8d;
+}
+.dropdown li:hover {
+  background-color: #f3f3f3;
+}
+.dropdown ul li img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.dropdown ul li span {
+  font-size: 14px;
+  color: #333;
+}
+.dropdown ul li .service-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.dropdown ul li .price {
+  font-size: 14px;
+  color: #e91e63; /* Pink color */
+  font-weight: bold;
+  margin-left: auto;
+}
+@keyframes dropdownSlide {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* ✅ Responsive override */
+@media (max-width: 480px) {
+ .dropdown {
+     max-width: 90vw;
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}@media (max-width: 768px) {
+  .categories {
+   grid-template-columns: 1fr; /* ✅ Only one button per row */
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .dropdown {
+    left: 0 !important;
+    right: 0;
+    transform: none !important;
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0 auto;
+    bottom: 110%;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+}
+
+.slider {
+  width: 300px; /* Or any fixed width you want */
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+    .experience-slider {
+  padding: 40px 20px;
+  text-align: center;
+  background: #fafafa;
+}
+
+.experience-slider h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Container around slider */
+.slider-container {
+    position: relative;
+  width: 100%;
+  max-width: 900px; /* You can adjust this */
+  overflow: hidden;
+  margin: 0 auto;
+  border-radius: 16px;
+  background-color: #fafafa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Inner track with horizontal scroll effect */
+.slider-track {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Card-style image items */
+.slider-track img {
+  width: 300px; /* Must match .slider width */
+  flex-shrink: 0;
+  object-fit: cover; /* optional for image fit */
+  height: 180px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.slider-track img:hover {
+  transform: scale(1.05);
+}
+
+/* Arrow buttons */
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: 28px;
+  padding: 12px;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button.prev:hover,
+button.next:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+
+/* ===== FAQ Section ===== */
+.faq-section {
+  background-color: #f8eded;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.faq-section h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ccc;
+  padding: 15px 0;
+}
+
+.faq-item .question {
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #444;
+}
+
+.faq-item .answer {
+  display: none;
+  margin-top: 8px;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.faq-item.active .answer {
+  display: block;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background-color: #46b0a9;
+  color: #fff;
+  padding: 40px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.footer-column {
+  margin: 20px;
+}
+
+.footer-column h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #fff;
+  border-bottom: 1px solid #555;
+  padding-bottom: 5px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 8px 0;
+}
+
+.footer-column ul li a {
+  color: #bbb;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-column ul li a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+  color: #aaa;
+  font-size: 14px;
+}
+
+section-title {
+  text-align: center;
+  color: #883f6c;
+  font-size: 2rem;
+  margin: 40px 0 20px;
+}
+
+/* Tutorials */
+/* Section Styling */
+.tutorials-section {
+  padding: 40px 20px;
+  background-color: #fff9f9;
+  text-align: center;
+}
+
+/* Title Styling */
+.tutorials-section .section-title {
+  font-size: 2rem;
+  color: #d28bb0;
+  margin-bottom: 10px;
+}
+
+.tutorials-section .section-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Swiper Styling */
+.tutorials-swiper {
+  max-width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Video Styling */
+.tutorial-slide video {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px hotpink;
+  margin-bottom: 15px;
+}
+
+
+/* Video Title */
+.video-title {
+  font-size: 1rem;
+  color: #333;
+  margin-top: 10px;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #c06b50;
+  top: 45%;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tutorial-slide video {
+    max-width: 90%;
+  }
+}
+
+.video-slider {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.video-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.video-track iframe {
+  width: 100%;
+  max-width: 300px;
+  height: 180px;
+  margin: 0 5px;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+
+.video-prev, .video-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: none;
+  font-size: 24px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+.video-prev { left: 10px; }
+.video-next { right: 10px; }
+
+/* Booking Section */
+.booking-section {
+  background: linear-gradient(135deg, #fffafc, #fef2f4);
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 20px;
+  max-width: 700px;
+  margin: 50px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.booking-section .section-title {
+  font-size: 2.5rem;
+  color: #e91e63;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.booking-section .section-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.booking-form input,
+.booking-form select {
+  padding: 12px 20px;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+  outline: none;
+  border-color: #e91e63;
+  box-shadow: 0 0 8px rgba(233, 30, 99, 0.2);
+}
+
+.booking-form button {
+  padding: 14px 30px;
+  background-color: #e91e63;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.booking-form button:hover {
+  background-color: #d81b60;
+}
+
+/* Booking Section */
+.booking-section {
+  background: linear-gradient(135deg, #fffafc, #fef2f4);
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 20px;
+  max-width: 700px;
+  margin: 50px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.booking-section .section-title {
+  font-size: 2.5rem;
+  color: #e91e63;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.booking-section .section-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.booking-form input,
+.booking-form select {
+  padding: 12px 20px;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+  outline: none;
+  border-color: #e91e63;
+  box-shadow: 0 0 8px rgba(233, 30, 99, 0.2);
+}
+
+.booking-form button {
+  padding: 14px 30px;
+  background-color: #e91e63;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.booking-form button:hover {
+  background-color: #d81b60;
+}
+@media (max-width: 768px) {
+  .tutorial-slide iframe {
+    height: 200px;
+  }
+}
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .video-track iframe {
+    max-width: 100%;
+    height: 200px;
+  }
+  .video-track {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+#bookingMsg {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-align: center;
+  display: none; /* Hidden initially */
+}
+
+#bookingMsg.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+#bookingMsg.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+
+.reviews-section {
+  margin: 20px 2px;
+  padding: 40px 20px;
+ background: linear-gradient(135deg, #fffafc, #fef2f4);
+  position: relative;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 28px;
+  color: #dcae96;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.reviews-slider-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 600px;
+  margin: auto;
+  width: 100%;
+}
+
+.reviews-slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.reviews-card {
+  flex: 0 0 100%; /* Ensures only one card shows at a time */
+  box-sizing: border-box;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin: 0;
+}
+
+.reviews-text {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.reviews-author {
+  color: #a66742;
+  font-weight: bold;
+}
+
+.reviews-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #dcae96;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.reviews-prev {
+  left: 1px;
+}
+
+.reviews-next {
+  right: 1px;
+}
+
+.reviews-nav-btn:hover {
+  background: #b8886a;
+}
+
+/* ✅ Mobile responsiveness: ensure 1 full card at a time */
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 22px;
+  }
+
+  .reviews-text {
+    font-size: 15px;
+  }
+
+  .reviews-nav-btn {
+    font-size: 20px;
+    padding: 6px 12px;
+  }
+
+  .reviews-card {
+    padding: 16px;
+  }
+}
+
+
+/* Why Home Salon */
+.why-home-salon {
+  background: #fff6e5;
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 40px auto;
+  max-width: 1200px;
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+}
+
+.why-home-salon .why-text h2 {
+  color: #b91c1c;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.why-home-salon ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.why-home-salon li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.why-home-salon .icon {
+  color: #b91c1c;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.why-home-salon .why-img img {
+  width: 180px;
+  max-width: 100%;
+}
+
+/* Safety Standards */
+.safety-standards {
+  background: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.safety-standards h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #111827;
+}
+
+.standards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.standard .icon {
+  color: #d63384;
+  margin-bottom: 10px;
+}
+
+.standard p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .standards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .why-home-salon {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .why-home-salon .why-img {
+    order: -1;
+  }
+}
+
+@media (max-width: 576px) {
+  .standards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-home-salon {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .why-home-salon .why-text h2 {
+    font-size: 20px;
+  }
+
+  .why-home-salon li {
+    font-size: 14px;
+  }
+
+  .safety-standards h2 {
+    font-size: 20px;
+  }
+
+  .standard p {
+    font-size: 14px;
+  }
+}
+
+.site-footer {
+  background-color: #44ada9;
+  color: white;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-about img {
+  height: 60px;
+  margin-right: 10px;
+}
+
+.footer-logos {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.footer-about p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.footer-copy {
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.footer-contact h3,
+.footer-links h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.footer-contact ul,
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  font-size: 14px;
+}
+
+.footer-contact li,
+.footer-links li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-contact i,
+.footer-social i {
+  color: white;
+}
+
+.footer-social {
+  margin-top: 10px;
+  display: flex;
+  gap: 14px;
+  font-size: 20px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img class="logo" src="miraya.svg" alt="Home Salon Logo">
+     <div class="brand-title">
+    <span class="part1">MIRA</span><span class="part2">YA</span>
+  </div>
+    <div class="header-icons">
+      <i class="fa-regular fa-bell"></i>
+      <i class="fa-solid fa-basket-shopping"></i>
+    </div>
+  </header>
+
+<div class="main-slider-section">
+  <div class="main-slider-wrapper">
+    <div class="main-slider-track" id="mainSliderTrack">
+      <div class="slide"><img src="dummy.png" alt="Slide 1" /></div>
+      <div class="slide"><img src="ads2.jpg" alt="Slide 2" /></div>
+      <div class="slide"><img src="sunny.jpg" alt="Slide 3" /></div>
+    </div>
+    <button class="main-prev" onclick="moveMainSlide(-1)">❮</button>
+    <button class="main-next" onclick="moveMainSlide(1)">❯</button>
+  </div>
+</div>
+
+  <!-- Location + Search -->
+  <div class="location-search">
+    <div class="location-box">
+      <i class="fa-solid fa-location-dot"></i>
+      <span>Select Locations</span>
+    </div>
+    <input class="search-bar" type="text" placeholder="Search for anything">
+  </div>
+
+  <!-- Promo -->
+  <div class="promo">
+    <h2>✨ Step into beauty. Step out with confidence. 💇‍♀️💅</h2>
+    <p>From glowing skin ✨ to flawless hair 💁‍♀️, our exclusive packages are crafted just for you. 🎀</p>
+  </div>
+
+  <h2 style="padding: 0 20px;">💁‍♀️ Hey Gorgeous! What’s Your Beauty Mood Today? 👑✨ </h2>
+
+  <!-- Categories -->
+  <div class="categories">
+    <div class="category" onclick="toggleDropdown('packages')">
+      <img src="salon.jpg" alt="Packages">
+      <div class="category-title">Package Deals</div>
+      <div id="packages" class="dropdown">
+        <strong>Package Deals:</strong>
+        <ul>
+           <li>
+    <img src="facial.jpg" alt="Bridal" />
+      <span class="service-name">Bridal Full Package</span>
+          <span class="price">₹2,999</span>
+  </li>
+  <li>
+    <img src="facial.jpg" alt="Bridal" />
+      <span class="service-name">Bridal Full Package</span>
+          <span class="price">₹2,999</span>
+  </li>
+    
+        </ul>
+      </div>
+    </div>
+
+     
+
+     <div class="category" onclick="toggleDropdown('offer')">
+      <img src="salon.jpg" alt="offer">
+      <div class="category-title">offer Deals</div>
+      <div id="offer" class="dropdown">
+        <strong>offet Deals:</strong>
+        <ul>
+            <li>
+    <img src="facial.jpg" alt="Bridal" />
+      <span class="service-name">Bridal Full Package</span>
+          <span class="price">₹2,999</span>
+  </li> <li>
+    <img src="facial.jpg" alt="Bridal" />
+      <span class="service-name">Bridal Full Package</span>
+          <span class="price">₹2,999</span>
+  </li> <li>
+    <img src="facial.jpg" alt="Bridal" />
+      <span class="service-name">Bridal Full Package</span>
+          <span class="price">₹2,999</span>
+  </li>
+        </ul>
+      </div>
+    </div>
+
+   
+
+    <div class="category" onclick="toggleDropdown('waxing')">
+      <img src="salon.jpg" alt="Waxing">
+      <div class="category-title">Waxing</div>
+      <div id="waxing" class="dropdown">
+        <strong>Waxing:</strong>
+        <ul>
+           <li>
+    <img src="facial.jpg" alt="Bridal" />
+      <span class="service-name">Bridal Full Package</span>
+          <span class="price">₹2,999</span>
+  </li> <li>
+    <img src="facial.jpg" alt="Bridal" />
+      <span class="service-name">Bridal Full Package</span>
+          <span class="price">₹2,999</span>
+  </li> <li>
+    <img src="facial.jpg" alt="Bridal" />
+      <span class="service-name">Bridal Full Package</span>
+          <span class="price">₹2,999</span>
+  </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="experience-slider">
+  <h2>💖 Glimpses of Glam: Our Stunning Transformations 📸</h2>
+  <div class="slider-container">
+    <div class="slider-track">
+      <img src="glimpse1.jpg" alt="Experience 1">
+      <img src="glimpse2.jpg" alt="Experience 2">
+      <img src="glimpse3.jpg" alt="Experience 3">
+      <!-- Add more images as needed -->
+    </div>
+    <button class="prev" onclick="moveSlide(-1)">❮</button>
+    <button class="next" onclick="moveSlide(1)">❯</button>
+  </div>
+  
+</div>
+
+<section id="tutorials" class="section tutorials-section">
+  <h2 class="section-title">🎨 Beauty School? More Like Glow School! 💄🎥</h2>
+  <p class="section-subtitle">💫 Learn tips, tricks & transformations with our easy-to-follow video guides!</p>
+
+  <!-- Swiper Container -->
+  <div class="swiper tutorials-swiper" style="overflow: hidden; position: relative;">
+    <div class="swiper-wrapper" style="display: flex; transition: transform 0.5s ease;">
+      <!-- Slide 1 -->
+      <div class="swiper-slide tutorial-slide" style="min-width: 100%;">
+        <video controls muted class="tutorial-video" style="width: 100%;">
+          <source src="videoo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <p class="video-title">Skin Care Routine</p>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide tutorial-slide" style="min-width: 100%;">
+        <video controls muted class="tutorial-video" style="width: 100%;">
+          <source src="videoo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <p class="video-title">Hair Styling Basics</p>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="swiper-button-prev" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); z-index: 1; cursor: pointer;"></div>
+    <div class="swiper-button-next" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); z-index: 1; cursor: pointer;"></div>
+  </div>
+</section>
+
+
+
+<section id="booking" class="section booking-section">
+  <h2 class="section-title">Your Glow Session Awaits✨</h2>
+  <p class="section-subtitle">From facials to hair magic, I’m here when you are.</p>
+
+  <form class="booking-form" id="bookingForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <select id="service" required>
+      <option value="">Select Service</option>
+      <option value="Hair Styling">Hair Styling</option>
+      <option value="Facial">Facial</option>
+      <option value="Skin Treatment">Skin Treatment</option>
+    </select>
+    <input type="datetime-local" id="datetime" required>
+    <button type="submit">Book Now</button>
+  </form>
+
+  <p id="bookingMsg"></p>
+</section>
+
+<!-- ======= FAQ Section ======= -->
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+  <div class="question" onclick="toggleFAQ(this)">What services do you offer?</div>
+  <div class="answer">I offer home-based beauty services like facials, clean-ups, waxing, threading, hair spa, and more. Feel free to ask for custom combos! 💆‍♀️💅</div>
+</div>
+
+<div class="faq-item">
+  <div class="question" onclick="toggleFAQ(this)">Do I need to bring anything?</div>
+  <div class="answer">Nope! I bring all the necessary products and tools. You just relax and enjoy your pampering time at home 😊</div>
+</div>
+
+<div class="faq-item">
+  <div class="question" onclick="toggleFAQ(this)">How can I book an appointment?</div>
+  <div class="answer">You can call or WhatsApp me, or book through the website. Choose your service and preferred time — I’ll confirm everything personally 📅📞</div>
+</div>
+
+<div class="faq-item">
+  <div class="question" onclick="toggleFAQ(this)">Are the products safe and hygienic?</div>
+  <div class="answer">Absolutely! I use branded, skin-friendly products and follow proper hygiene with clean tools and sanitized kits 🧼🧴</div>
+</div>
+
+<div class="faq-item">
+  <div class="question" onclick="toggleFAQ(this)">Do you provide home visits?</div>
+  <div class="answer">Currently, I offer services only at my place. You’re most welcome to visit and enjoy relaxing beauty sessions in a peaceful home setup 💆‍♀️✨</div>
+</div>
+</section>
+
+<section id="testimonials" class="section reviews-section">
+  <h2 class="section-title">What Our Clients Say</h2>
+  <div class="reviews-slider-container">
+    <div class="reviews-slider-track">
+      <div class="reviews-card">
+        <p class="reviews-text">“Absolutely loved the service! My hair feels amazing and the ambiance was soothing.”</p>
+        <h4 class="reviews-author">– Aisha Patel</h4>
+      </div>
+       <div class="reviews-card">
+        <p class="reviews-text">“Absolutely loved the service! My hair feels amazing and the ambiance was soothing.”</p>
+        <h4 class="reviews-author">– Aisha Patel</h4>
+      </div>
+       <div class="reviews-card">
+        <p class="reviews-text">“Absolutely loved the service! My hair feels amazing and the ambiance was soothing.”</p>
+        <h4 class="reviews-author">– Aisha Patel</h4>
+      </div>
+      <div class="reviews-card">
+        <p class="reviews-text">“Miraya is my go-to salon for all skin treatments. Professionals with magic hands!”</p>
+        <h4 class="reviews-author">– Riya Sharma</h4>
+      </div>
+      <div class="reviews-card">
+        <p class="reviews-text">“Highly recommend Miraya! Staff is warm, courteous and professional.”</p>
+        <h4 class="reviews-author">– Sneha Joshi</h4>
+      </div>
+    </div>
+    <button class="reviews-nav-btn reviews-prev">‹</button>
+    <button class="reviews-nav-btn reviews-next">›</button>
+  </div>
+</section>
+<!-- Why Home Salon Section -->
+<section class="why-home-salon">
+  <div class="why-text">
+    <h2>Why Choose Us? 💇‍♀️</h2>
+    <ul>
+     <li><span class="icon">✔</span> Branded Products Used Fresh for Every Client</li>
+<li><span class="icon">✔</span> Personally Trained with Real Client Experience</li>
+<li><span class="icon">✔</span> Clean, Calm & Comfortable Home Setup</li>
+    </ul>
+  </div>
+  <div class="why-img">
+    <img src="why.jpg" alt="Beautician working" />
+  </div>
+</section>
+
+<!-- Safety Standards Section -->
+<!-- Safety Standards Section -->
+<section class="safety-standards">
+  <h2>Home Salon's Safety Standards 🛡️</h2>
+  <div class="standards-grid">
+    <div class="standard">
+      <i class="fas fa-soap fa-2x icon"></i>
+      <p>Sanitized kits </p>
+    </div>
+    <div class="standard">
+      <i class="fas fa-thermometer-half fa-2x icon"></i>
+      <p>Temperature check</p>
+    </div>
+   <div class="standard">
+  <i class="fas fa-user-check fa-2x icon"></i>
+  <p>Trusted & Trained</p>
+</div>
+    <div class="standard">
+      <i class="fas fa-pump-soap fa-2x icon"></i>
+      <p>One-Time use products</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- Logo & About -->
+    <div class="footer-about">
+      <div class="footer-logos">
+        <img src="logo1.png" alt="Home Salon Logo" />
+        <img src="logo2.png" alt="Certification Logo" />
+      </div>
+      <p>✨ Welcome to Miraya, your personal home salon.
+We started in 2024 with a simple goal — to bring beauty and grooming services to your doorstep.
+
+Whether it’s a haircut, facial, or festive makeup, we make you feel confident and beautiful in the comfort of your home.
+At Miraya, your time, hygiene, and satisfaction matter the most.
+
+We’re not just a salon. We’re your beauty partner — at home.
+
+
+      </p>
+      <p class="footer-copy">© 2025 . All rights reserved.</p>
+      
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-contact">
+      <h3>Connect with Us!</h3>
+      <ul>
+        <li><i class="fas fa-map-marker-alt"></i> 3a/27, Negi Road, Karanpur, Dehradun, Uttarakhand (248001)</li>
+        <li><i class="fas fa-phone-alt"></i> +91 - 7017060171</li>
+        <li><i class="fas fa-envelope"></i> info@homesalon.in</li>
+      </ul>
+      <div class="footer-social">
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-tiktok"></i>
+        <i class="fab fa-linkedin-in"></i>
+        <i class="fab fa-spotify"></i>
+      </div>
+    </div>
+
+   
+
+    <!-- Help Section -->
+    <div class="footer-links">
+      <h3>Need Help ?</h3>
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+  <!-- Bottom Navigation -->
+  <div class="bottom-nav">
+    <div class="nav-item">
+      <i class="fa-solid fa-house"></i>
+      Home
+    </div>
+    <div class="nav-item">
+      <i class="fa-regular fa-user"></i>
+      Profile
+    </div>
+    <div class="center-btn">
+      <i class="fa-solid fa-camera"></i>
+    </div>
+    <div class="nav-item">
+      <i class="fa-regular fa-calendar-check"></i>
+      Booking
+    </div>
+    <div class="nav-item">
+      <i class="fa-solid fa-gift"></i>
+      Refer
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script>
+  // === Dropdown toggle ===
+  function toggleDropdown(id) {
+    document.querySelectorAll('.dropdown').forEach(drop => {
+      if (drop.id !== id) drop.classList.remove('active');
+    });
+    const current = document.getElementById(id);
+    current.classList.toggle('active');
+  }
+
+  // === Slider using translateX ===
+  let currentIndex = 0;
+  const track = document.querySelector('.slider-track');
+  const images = document.querySelectorAll('.slider-track img');
+  const totalSlides = images.length;
+
+  function moveSlide(step) {
+    currentIndex = (currentIndex + step + totalSlides) % totalSlides;
+    updateSlide();
+  }
+
+  function updateSlide() {
+    const slideWidth = images[0].clientWidth;
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    track.style.transition = 'transform 0.5s ease';
+  }
+
+  // Auto move every 10s
+  setInterval(() => {
+    moveSlide(1);
+  }, 10000);
+
+  window.addEventListener('resize', updateSlide);
+
+  // === Main Slider (Hero) ===
+  let mainIndex = 0;
+  const mainTrack = document.getElementById('mainSliderTrack');
+  const mainImages = mainTrack.querySelectorAll('img');
+  const mainSlideCount = mainImages.length;
+
+  function moveMainSlide(step) {
+    mainIndex = (mainIndex + step + mainSlideCount) % mainSlideCount;
+    updateMainSlider();
+  }
+
+  function updateMainSlider() {
+    const imgWidth = mainImages[0].clientWidth;
+    mainTrack.style.transform = `translateX(-${mainIndex * imgWidth}px)`;
+    mainTrack.style.transition = 'transform 0.5s ease';
+  }
+
+  // Auto move main slider every 10s
+  setInterval(() => {
+    moveMainSlide(1);
+  }, 10000);
+
+  window.addEventListener('resize', updateMainSlider);
+
+  function toggleFAQ(el) {
+    const item = el.parentElement;
+    item.classList.toggle('active');
+  }
+
+  
+
+
+  
+ let tutorialIndex = 0;
+  const tutorialTrack = document.querySelector('#tutorials .swiper-wrapper');
+
+  if (tutorialTrack) {
+    const tutorialSlides = tutorialTrack.querySelectorAll('.swiper-slide');
+    const tutorialSlideCount = tutorialSlides.length;
+
+    const tutorialNextBtn = document.querySelector('#tutorials .swiper-button-next');
+    const tutorialPrevBtn = document.querySelector('#tutorials .swiper-button-prev');
+
+    function updateTutorialSlider() {
+      const slideWidth = tutorialSlides[0].clientWidth;
+      tutorialTrack.style.transform = `translateX(-${tutorialIndex * slideWidth}px)`;
+      tutorialTrack.style.transition = 'transform 0.5s ease';
+    }
+
+    function moveTutorialSlide(step) {
+      tutorialIndex = (tutorialIndex + step + tutorialSlideCount) % tutorialSlideCount;
+      updateTutorialSlider();
+    }
+
+    tutorialNextBtn?.addEventListener('click', () => moveTutorialSlide(1));
+    tutorialPrevBtn?.addEventListener('click', () => moveTutorialSlide(-1));
+
+    window.addEventListener('resize', updateTutorialSlider);
+  }
+
+
+  document.getElementById("bookingForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const service = document.getElementById("service").value;
+  const datetime = document.getElementById("datetime").value;
+
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("email", email);
+  formData.append("service", service);
+  formData.append("datetime", datetime);
+
+  const bookingMsg = document.getElementById("bookingMsg");
+  bookingMsg.style.display = "none"; // Hide previous message
+
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyExbkRVAtZNsi17EtQxiNem90Ns-BmWgRKWW4BDuYbs78aPWqETgOnNQNlwb6stkei/exec";
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: formData
+  })
+  .then(res => res.json())
+  .then(data => {
+    bookingMsg.style.display = "block";
+    bookingMsg.className = "success";
+    bookingMsg.innerText = data.message || "Your booking has been submitted successfully!";
+    document.getElementById("bookingForm").reset();
+  })
+  .catch(err => {
+    bookingMsg.style.display = "block";
+    bookingMsg.className = "error";
+    bookingMsg.innerText = "Error submitting booking. Try again.";
+    console.error("Booking error:", err);
+  });
+});
+
+
+  
+ window.onload = function () {
+    let reviewsCurrentIndex = 0;
+    const reviewsTrack = document.querySelector('.reviews-slider-track');
+    const reviewsCards = document.querySelectorAll('.reviews-card');
+    const reviewsNextBtn = document.querySelector('.reviews-next');
+    const reviewsPrevBtn = document.querySelector('.reviews-prev');
+    const reviewsTotal = reviewsCards.length;
+
+    function reviewsUpdateSlider() {
+      reviewsTrack.style.transform = `translateX(-${reviewsCurrentIndex * 100}%)`;
+    }
+
+    function reviewsMove(step) {
+      reviewsCurrentIndex = (reviewsCurrentIndex + step + reviewsTotal) % reviewsTotal;
+      reviewsUpdateSlider();
+    }
+
+    reviewsNextBtn.onclick = () => reviewsMove(1);
+    reviewsPrevBtn.onclick = () => reviewsMove(-1);
+
+    // Auto slide every 10 seconds
+    setInterval(() => {
+      reviewsMove(1);
+    }, 10000);
+
+    // Optional: update on window resize to reapply transform
+    window.addEventListener('resize', reviewsUpdateSlider);
+  }
+
+ function toggleDropdown(id) {
+  const dropdowns = document.querySelectorAll('.dropdown');
+  dropdowns.forEach(drop => {
+    if (drop.id === id) {
+      drop.style.display = drop.style.display === 'block' ? 'none' : 'block';
+    } else {
+      drop.style.display = 'none';
+    }
+  });
+}
+
+
+</script>
+
+
+</body>
+</html>
