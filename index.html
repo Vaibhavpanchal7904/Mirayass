@@ -1131,7 +1131,7 @@ section-title {
     </div>
   </header>
 
-<div class="main-slider-section">
+<div  id="ads" class="main-slider-section">
   <div class="main-slider-wrapper">
     <div class="main-slider-track" id="mainSliderTrack">
       <div class="slide"><img src="dummy.png" alt="Slide 1" /></div>
@@ -1158,10 +1158,13 @@ section-title {
     <p>From glowing skin ✨ to flawless hair 💁‍♀️, our exclusive packages are crafted just for you. 🎀</p>
   </div>
 
-  <h2 style="padding: 0 20px;">💁‍♀️ Hey Gorgeous! What’s Your Beauty Mood Today? 👑✨ </h2>
+  
 
   <!-- Categories -->
+   <section id="services">
+    <h2 style="padding: 0 20px;">💁‍♀️ Hey Gorgeous! What’s Your Beauty Mood Today? 👑✨ </h2>
   <div class="categories">
+    
     <div class="category" onclick="toggleDropdown('packages')">
       <img src="salon.jpg" alt="Packages">
       <div class="category-title">Package Deals</div>
@@ -1233,7 +1236,7 @@ section-title {
       </div>
     </div>
   </div>
-
+</section>
   <div class="experience-slider">
   <h2>💖 Glimpses of Glam: Our Stunning Transformations 📸</h2>
   <div class="slider-container">
@@ -1458,27 +1461,29 @@ We’re not just a salon. We’re your beauty partner — at home.
 
 
   <!-- Bottom Navigation -->
-  <div class="bottom-nav">
-    <div class="nav-item">
-      <i class="fa-solid fa-house"></i>
-      Home
-    </div>
-    <div class="nav-item">
-      <i class="fa-regular fa-user"></i>
-      Profile
-    </div>
-    <div class="center-btn">
-      <i class="fa-solid fa-camera"></i>
-    </div>
-    <div class="nav-item">
-      <i class="fa-regular fa-calendar-check"></i>
-      Booking
-    </div>
-    <div class="nav-item">
-      <i class="fa-solid fa-gift"></i>
-      Refer
-    </div>
+<div class="bottom-nav">
+ <a href="#ads" class="nav-item">
+    <i class="fa-solid fa-bullhorn"></i>
+    <span>Ads</span>
+  </a>
+  <a href="#booking" class="nav-item">
+    <i class="fa-regular fa-calendar-check"></i>
+    <span>Booking</span>
+  </a>
+  <div class="center-btn">
+    <i class="fa-solid fa-headset"></i>
+   
   </div>
+  <a href="#services" class="nav-item">
+    <i class="fa-solid fa-briefcase"></i>
+    <span>Services</span>
+  </a>
+  <a href="#tutorials" class="nav-item">
+    <i class="fa-solid fa-book-open-reader"></i>
+    <span>Tutorials</span>
+  </a>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <script>
   // === Dropdown toggle ===
